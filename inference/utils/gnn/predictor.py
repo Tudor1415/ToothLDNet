@@ -2,7 +2,6 @@ import torch
 import numpy as np
 import os
 import trimesh
-from mesh import TriMesh
 from pl_model_gnn import LitModel
 from data.gnn.common import calc_features
 from utils.gnn.cluster import Cluster
@@ -159,10 +158,8 @@ def gnn_run(mesh_sim, weight_dir):
         labels_sim = np.squeeze(labels_sim)
 
         if sum(labels_sim) >= 120:
-            # TriMesh(vs, fs, labels_sim).visualize()
             all_labels.append(labels_sim)
     all_labels = np.array(all_labels)
-    # TriMesh(vs, fs, np.sum(all_labels, axis=0)).visualize()
     return all_labels, mesh_sim
 
 
