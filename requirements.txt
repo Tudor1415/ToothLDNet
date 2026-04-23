@@ -1,0 +1,27 @@
+# Core numerical and ML stack
+numpy
+scipy
+torch
+pytorch-lightning
+
+# Mesh and geometry processing
+trimesh
+
+# CLI, config, and progress utilities
+click
+tqdm
+PyYAML
+
+# Classical ML / clustering / neighbors
+scikit-learn
+
+# Visualization utilities used across training and inference scripts
+matplotlib
+
+# Graph cut dependency imported by multiple scripts
+pygco
+
+# Note:
+# The inference mesh simplification step imports `bpy` from Blender.
+# Install Blender / bpy separately in the target environment rather than
+# relying on this requirements file alone.
