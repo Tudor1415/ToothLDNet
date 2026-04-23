@@ -18,13 +18,13 @@ set -x
 module purge
 module load cuda/11.7.0
 
-REPO_DIR="${SLURM_SUBMIT_DIR:-$PWD}"
+REPO_DIR="${REPO_DIR:-$WORK/ToothLDNet}"
 cd "$REPO_DIR"
 
 export PYTHONUNBUFFERED=1
 export CUDA_DEVICE_ORDER=PCI_BUS_ID
 
-VENV_PATH="${VENV_PATH:-$REPO_DIR/crosstooth/bin/activate}"
+VENV_PATH="${VENV_PATH:-$REPO_DIR/landmark_env/bin/activate}"
 if [ ! -f "$VENV_PATH" ]; then
   echo "ERROR: virtualenv not found at $VENV_PATH"
   exit 1
