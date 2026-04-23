@@ -8,7 +8,7 @@ def adjust_mesh_faces(mesh, target_face_count=10000):
 
     # 1. 如果面片数量高于10000，则随机选择10000个面
     if current_face_count > target_face_count:
-        mesh = mesh.simplify_quadratic_decimation(target_face_count)
+    mesh = mesh.simplify_quadric_decimation(target_face_count)
     # 2. 如果面片数量低于10000，则通过细分网格增加面片数
     if current_face_count < target_face_count:
         # 增加更多面片
