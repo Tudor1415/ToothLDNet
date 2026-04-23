@@ -7,13 +7,13 @@ def adjust_mesh_faces(mesh, target_face_count=10000):
     current_face_count = len(mesh.faces)
 
     if current_face_count > target_face_count:
-        mesh = mesh.simplify_quadric_decimation(target_face_count)
+        mesh = mesh.simplify_quadric_decimation(target_count=target_face_count)
 
     if current_face_count < target_face_count:
         while len(mesh.faces) < target_face_count:
             mesh = mesh.subdivide()
         if len(mesh.faces) > target_face_count:
-            mesh = mesh.simplify_quadric_decimation(target_face_count)
+            mesh = mesh.simplify_quadric_decimation(target_count=target_face_count)
 
     return mesh
 
