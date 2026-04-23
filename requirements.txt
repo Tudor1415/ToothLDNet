@@ -18,6 +18,9 @@ scikit-learn
 # Visualization utilities used across training and inference scripts
 matplotlib
 
+# Build dependency required by pygco
+Cython
+
 # Graph cut dependency imported by multiple scripts
 pygco
 
