@@ -198,7 +198,7 @@ print(f"Selected {len(selected)} random cases from {data_root}:")
 for case in selected:
     print(case)
 
-land_model = LitModel.load_from_checkpoint(str(land_ckpt)).cuda()
+land_model = LitModel.load_from_checkpoint(str(land_ckpt), weights_only=False).cuda()
 land_model.eval()
 
 for case_path in selected:

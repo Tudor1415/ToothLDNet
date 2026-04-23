@@ -11,7 +11,7 @@ from scripts.graph_cut import graph_cut
 class Predictor:
     def __init__(self, weight_dir):
         weights = os.path.join(weight_dir, 'checkpoints/last.ckpt')
-        self.teethgnn = LitModel.load_from_checkpoint(weights).cuda()
+        self.teethgnn = LitModel.load_from_checkpoint(weights, weights_only=False).cuda()
         self.args = self.teethgnn.hparams.args
         self.teethgnn.eval()
         self.cluster = Cluster()
@@ -130,7 +130,7 @@ class Predictor:
 
 
 def gnn_run(mesh_sim, weight_dir):
-    model = LitModel.load_from_checkpoint(weight_dir).cuda()
+    model = LitModel.load_from_checkpoint(weight_dir, weights_only=False).cuda()
     model.eval()
     args = model.hparams.args
 
