@@ -12,7 +12,7 @@
 #SBATCH --output=slurm_logs/toothld_infer_rand10_%j.out
 #SBATCH --error=slurm_logs/toothld_infer_rand10_%j.err
 
-set -euo pipefail
+set -eo pipefail
 set -x
 
 module purge
