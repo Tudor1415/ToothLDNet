@@ -16,7 +16,7 @@ set -euo pipefail
 set -x
 
 module purge
-module load cuda/11.7.0
+module load cuda/11.7.1
 
 REPO_DIR="${REPO_DIR:-$WORK/ToothLDNet}"
 cd "$REPO_DIR"
