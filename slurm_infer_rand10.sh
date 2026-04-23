@@ -127,10 +127,15 @@ def run_landmarks(mesh, mesh_sim, patches, case_name, land_model):
         with torch.no_grad():
             pts, p_labels = land_model.infer(features1, features2, vs_offset_t)
             pts = pts.cpu().numpy() + vs_offset
-            p_labels = p_labels.cpu().numpy()
-            keep = np.nonzero(p_labels)
-            pts = pts[keep]
+            p_labels = p_labels.cpu().numpy().reshape(-1)
+            keep = p_labels != 0
             p_labels = p_labels[keep]
+            pts = np.atleast_2d(pts)
+
+            if len(pts) != len(p_labels):
+                n = min(len(pts), len(p_labels))
+                pts = pts[:n]
+                p_labels = p_labels[:n]
 
         if len(pts):
             pts_all = np.concatenate((pts_all, pts), axis=0)
